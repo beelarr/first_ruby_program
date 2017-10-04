@@ -121,8 +121,10 @@ for name in my_hash.keys
   puts name.class
 end
 
-my_hash.values.each
-puts my_hash
+my_hash.each do
+puts my_hash.values
+end
+
 
 
 
@@ -147,4 +149,5 @@ pants.merge!(ties)
 if pant_ties == pants
   p "pants and pant_ties are equal"
 end
+
 
