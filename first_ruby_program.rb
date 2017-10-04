@@ -68,7 +68,83 @@ socks = Hash.new
 socks = {:polka_dot => 3, :striped => 5}
 puts socks
 ties = {}
+puts "Is my tie hash empty: #{ties.empty?}"
 puts ties
 puts ties["bow ties"]
+puts "Is my tie hash empty: #{ties.empty?}"
 pants = {parachute: 'cool', skinny: 'ewww'}
 puts pants[:parachute]
+
+
+puts pants.keys
+puts "Does pants have key parachute? #{pants.key?(:parachute)}"
+puts "Does pants have key parachute? #{pants.key?(:banana)}"
+pants.delete(:skinny)
+puts pants
+
+pants = {
+    :parachute => "cool",
+    :skinny => "ewww" }
+puts pants[:parachute]
+puts "Object id of pants: #{pants.object_id}"
+puts "Object id of pants[:parachute]: #{pants[:parachute].object_id}"
+for i in pants.keys
+  puts i.object_id
+end
+shirts = {
+    :button_up => "blue",
+    :skinny => "nah" }
+puts "Object id of shirts: #{shirts.object_id}"
+puts "Object id of shirts[:parachute]: #{shirts[:parachute].object_id}"
+for i in shirts.keys
+  puts i.object_id
+end
+
+
+puts "Original hash: #{shirts} and its object id: #{shirts.object_id}"
+inv_shirts = shirts.invert
+puts inv_shirts
+puts inv_shirts.is_a? Hash
+
+puts shirts.length
+
+my_hash = {
+    :first => "Bryon",
+    :last => "Larrance"
+}
+
+for name in my_hash
+  puts name.class
+end
+
+for name in my_hash.keys
+  puts name.class
+end
+
+my_hash.values.each
+puts my_hash
+
+
+
+
+pants_shirts = pants.merge(shirts)
+puts "The merged hash of pants and shirts is #{pants_shirts}"
+
+
+pant_ties = pants.merge(ties)
+puts "The new hash #{pant_ties}"
+
+pant_ties = pants.merge!(ties)
+#Bang modifies the pants_ties and pants obj it is the same and object.id is the same
+
+puts "Pants ties #{pant_ties}"
+puts "Pants #{pants}"
+
+
+pants_ties = pants.merge(ties)
+pants.merge!(ties)
+
+if pant_ties == pants
+  p "pants and pant_ties are equal"
+end
+
